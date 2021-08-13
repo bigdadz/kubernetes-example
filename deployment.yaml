@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-devops-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-devops
+  template:
+    metadata:
+      labels:
+        app: hello-devops
+    spec:
+      containers:
+        - name: hello-devops
+          image: bigdadz/hello-devops:1.0.0
+          ports:
+            - containerPort: 3000
